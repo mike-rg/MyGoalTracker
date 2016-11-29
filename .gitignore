@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# DataBase
+db.sqlite3
+
+# Temporary files
+*~
+.~*
