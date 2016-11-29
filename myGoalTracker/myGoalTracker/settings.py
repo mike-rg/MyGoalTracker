@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,12 @@ ROOT_URLCONF = 'myGoalTracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+                'templates',
+                os.path.join(BASE_DIR, "../templates/"),
+                os.path.join(BASE_DIR, "./templates/"),
+                os.path.join(os.path.join(BASE_DIR, 'templates'), 'usuario'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'templates'),
+)
