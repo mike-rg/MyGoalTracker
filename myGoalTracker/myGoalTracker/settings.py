@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usuario',
+    'meta',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,7 @@ TEMPLATES = [
                 'templates',
                 os.path.join(BASE_DIR, "../templates/"),
                 os.path.join(BASE_DIR, "./templates/"),
+                os.path.join(os.path.join(BASE_DIR, 'templates'), 'meta'),
                 os.path.join(os.path.join(BASE_DIR, 'templates'), 'usuario'),
         ],
         'APP_DIRS': True,
@@ -109,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-AR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Cordoba'
 
 USE_I18N = True
 
@@ -129,3 +131,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'templates'),
 )
+
+# Definiciones
+
+LOGIN_REDIRECT_URL = '/principal/'

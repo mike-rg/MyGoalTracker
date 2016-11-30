@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <meta charset="UTF-8">
+            <title>Goal Set Tracker</title>
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+            <script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+            <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+            <link rel="stylesheet" href={% static 'style.css' %}>
+        </head>
+        <header>
+            <div class="container">
+                <nav class="navbar navbar-default navbar-fixed-top"> <!-- Barra de Navegacion Principal -->
+                    <div class="container-fluid">
+                        <div class="navbar-header"> <!-- Titulo a la izquierda -->
+                            <div class="hidden-xs">
+                                <a class="navbar-brand" href="/">Goal Set Tracker</a>
+                            </div>
+                        </div> <!-- Fin de Titulo a la izquierda -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            {% block topbar %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </nav> <!-- Fin de Barra de Navegacion Principal -->
+            </div>
+        </header>
+        <div class="container-fluid"> <!-- Banner Principal -->
+            {% block top %}
+            <div class="row row-centered">
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                    <img src="http://lorempixel.com/1024/200" class="image-responsive class="mx-auto" style="width:100%;"/>
+                </div>
+            </div>
+            {% endblock %}
+        </div> <!-- Fin de Banner Principal -->
+        <div class="main container">
+            <section class="row row-centered">
+                <section class="col-xs-12 col-sm-8 col-md-9"> <!-- Contenedor Principal -->
+                    {% block content %}
+                    {% endblock %}
+                </section> <!-- Fin de Contenedor Principal -->
+                    {% block sidebar %}
+                    {% endblock %}
+            </section>
+        </div>
+        <footer>
+            <div class="container">
+                <h4>Pie de pagina</h4>
+            <div>
+        </footer>
+    </body>
+</html>
