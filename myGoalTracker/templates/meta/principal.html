@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block topbar %}
+<form class="navbar-form navbar-left">
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Buscar en el sitio">
+</div>
+<button type="submit" class="btn btn-default">Buscar</button>
+</form>
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="#"><i class="glyphicon glyphicon-bell pull-left"></i></a></li>
+    <li><a href="/logout/"><i class="glyphicon glyphicon-log-out pull-left"></i></a></li>
+</ul>
+{% endblock %}
+{% block top %}
+<div class="card hovercard">
+    <div class="card-background">
+        <img src="http://lorempixel.com/1024/200" class="image-responsive class="mx-auto" style="width:100%;"/>
+    </div>
+    <div class="useravatar">
+        <img alt="" src="http://lorempixel.com/100/100/people/5/">
+    </div>
+    <div class="card-info">
+        <span class="card-title">Nombre de Usuario</span>
+    </div>
+</div>
+<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <div class="hidden-xs">
+            <a href="{% url 'perfil' %}" class="btn btn-default">
+            Progreso <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="btn-group" role="group">
+        <div class="hidden-xs">
+            <a href="{% url 'perfil' %}" class="btn btn-default">
+            Metas <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="btn-group" role="group">
+        <div class="hidden-xs">
+            <a href="{% url 'perfil' %}" class="btn btn-default">
+            Recordatorios <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="btn-group" role="group">
+        <div class="hidden-xs">
+            <a href="{% url 'perfil' %}" class="btn btn-default">
+            Categorias <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="btn-group" role="group">
+        <div class="hidden-xs">
+            <a href="{% url 'perfil' %}" class="btn btn-default">
+            Perfil <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+{% endblock %}
