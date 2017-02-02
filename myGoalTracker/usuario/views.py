@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import views
 
 from usuario.models import Usuario
+from usuario.forms import UserForm, UsuarioForm
 
 
 def pagina_de_inicio(request):
@@ -17,7 +18,11 @@ def registrar_usuario(request):
         if user_form.is_valid():
             user = user_form.save(commit=False)
             user.save()
-            return redirect('/login')
+            perfil = Usuario()
+            # "Usuario.usuario" debe ser una instancia de "User"
+            perfil.usuario = user
+            perfil.save()
+            return redirect('/login/')
     else:
         user_form = UserCreationForm(prefix="user")
 
@@ -43,4 +48,23 @@ def logout_usuario(request):
 
 @login_required
 def perfil_usuario(request):
-    return render(request, 'perfil.html')
+    user = request.user
+    usuario = Usuario.objects.get(usuario=user.id)
+    if request.method == "POST":
+        user_form = UserForm(request.POST, instance=user)
+        usuario_form = UsuarioForm(request.POST, request.FILES, instance=usuario)
+        if usuario_form.is_valid() and user_form.is_valid():
+            user = user_form.save()
+            usuario = usuario_form.save()
+            user.save()
+            usuario.save()
+            return redirect('/principal/')
+    else:
+        user_form = UserForm()
+        usuario_form = UsuarioForm() 
+
+    context = {
+        "user_form": user_form,
+        "usuario_form": usuario_form,
+    }
+    return render(request, 'perfil.html', context)

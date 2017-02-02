@@ -2,4 +2,12 @@
 {% load staticfiles %}
 {% block content %}
 <h3>Perfil</h3>
+<br>
+<form method="POST" class="post-form" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{ usuario_form.as_p }}
+  <button type="submit" class="save btn btn-default">Guardar</button>
+</form>
+<br>
 {% endblock %}

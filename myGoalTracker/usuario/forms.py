@@ -8,12 +8,13 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
+        exclude = "__all__"
+        fields = ('first_name', 'last_name', 'email', )
 
 
 class UsuarioForm(forms.ModelForm):
 
     class Meta:
          model = Usuario
-         exclude = ('usuario')
-         fields = "__all__"
+         exclude = ['usuario']
+         fields = ('foto', )

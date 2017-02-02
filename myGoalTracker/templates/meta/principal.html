@@ -18,37 +18,37 @@
         <img src="http://lorempixel.com/1024/200" class="image-responsive class="mx-auto" style="width:100%;"/>
     </div>
     <div class="useravatar">
-        <img alt="" src="http://lorempixel.com/100/100/people/5/">
+        <img alt="" src={{ foto_perfil_usuario.url }}/>
     </div>
     <div class="card-info">
-        <span class="card-title">Nombre de Usuario</span>
+        <span class="card-title">{{ nombre_usuario }}</span>
     </div>
 </div>
 <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
     <div class="btn-group" role="group">
         <div class="hidden-xs">
-            <a href="{% url 'perfil' %}" class="btn btn-default">
+            <a href="{% url 'principal' %}" class="btn btn-default">
             Progreso <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
             </a>
         </div>
     </div>
     <div class="btn-group" role="group">
         <div class="hidden-xs">
-            <a href="{% url 'perfil' %}" class="btn btn-default">
+            <a href="{% url 'principal' %}" class="btn btn-default">
             Metas <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             </a>
         </div>
     </div>
     <div class="btn-group" role="group">
         <div class="hidden-xs">
-            <a href="{% url 'perfil' %}" class="btn btn-default">
+            <a href="{% url 'principal' %}" class="btn btn-default">
             Recordatorios <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
             </a>
         </div>
     </div>
     <div class="btn-group" role="group">
         <div class="hidden-xs">
-            <a href="{% url 'perfil' %}" class="btn btn-default">
+            <a href="{% url 'principal' %}" class="btn btn-default">
             Categorias <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
             </a>
         </div>
