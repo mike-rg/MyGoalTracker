@@ -1,0 +1,12 @@
+{% extends 'principal.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Crear nueva meta</h3>
+<br>
+<form method="POST" class="post-form">
+  {% csrf_token %}
+  {{ meta_form.as_p }}
+  <button type="submit" class="save btn btn-default">Guardar</button>
+</form>
+<br>
+{% endblock %}

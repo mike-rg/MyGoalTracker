@@ -1,0 +1,16 @@
+{% extends 'principal.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Listado de metas</h3>
+<br>
+{% csrf_token %}
+<table class="table">
+    {% for meta in lista_metas %}
+      <tr> 
+          <td>{{ meta.titulo }}</td>
+          <td>{{ meta.descripcion }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+<br>
+{% endblock %}
