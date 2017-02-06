@@ -11,6 +11,8 @@ class MetaAbstracta(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
     fecha_comienzo = models.DateTimeField(null=True, blank=True, default=datetime.now)
+    fecha_finalizacion = models.DateTimeField(null=True, blank=True, default=datetime.now)
+
 
 
 class Meta(MetaAbstracta):

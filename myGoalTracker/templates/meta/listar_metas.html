@@ -9,6 +9,8 @@
       <tr> 
           <td>{{ meta.titulo }}</td>
           <td>{{ meta.descripcion }}</td>
+          <td><a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a></td>
+          <td><a class="btn btn-default" href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar</a></td>
       </tr>
     {% endfor %}
   </table>
