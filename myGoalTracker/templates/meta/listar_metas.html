@@ -1,0 +1,18 @@
+{% extends 'principal.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Listado de metas</h3>
+<br>
+{% csrf_token %}
+<table class="table">
+    {% for meta in lista_metas %}
+      <tr> 
+          <td>{{ meta.titulo }}</td>
+          <td>{{ meta.descripcion }}</td>
+          <td><a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a></td>
+          <td><a class="btn btn-default" href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+<br>
+{% endblock %}

@@ -62,6 +62,8 @@ TEMPLATES = [
                 os.path.join(BASE_DIR, "./templates/"),
                 os.path.join(os.path.join(BASE_DIR, 'templates'), 'meta'),
                 os.path.join(os.path.join(BASE_DIR, 'templates'), 'usuario'),
+                os.path.join(BASE_DIR, '../imagenes/'),
+                os.path.join(BASE_DIR, "./imagenes/"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -70,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -130,8 +133,14 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, "imagenes"),
 )
 
 # Definiciones
 
 LOGIN_REDIRECT_URL = '/principal/'
+
+# Definicion local de donde guardar las imagenes subidas
+
+MEDIA_URL = '/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
