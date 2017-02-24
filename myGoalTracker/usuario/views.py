@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import views
+from django.http import JsonResponse
 
 from usuario.models import Usuario
 from usuario.forms import UserForm, UsuarioForm
@@ -47,7 +48,7 @@ def logout_usuario(request):
 
 
 @login_required
-def perfil_usuario(request):
+def modificar_perfil_usuario(request):
     user = request.user
     usuario = Usuario.objects.get(usuario=user.id)
     if request.method == "POST":
@@ -68,3 +69,17 @@ def perfil_usuario(request):
         "usuario_form": usuario_form,
     }
     return render(request, 'perfil.html', context)
+
+
+@login_required
+def perfil_usuario(request):
+    user = request.user
+    nombre_usuario = user.username
+    usuario = Usuario.objects.get(usuario=user.id)
+    foto_perfil = usuario.foto
+
+    data = {
+        'nombre_usuario': nombre_usuario,
+        'foto_perfil_url' : foto_perfil.url,
+    }
+    return JsonResponse(data)

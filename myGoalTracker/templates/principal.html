@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block javascript %}
+<script>
+    $.ajax({
+        url: '/perfil_usuario/',
+        type: 'GET',
+        success: function (data) {
+            var cargar_foto_ferfil = document.getElementById("foto_perfil_usuario");
+            var cargar_nombre_usuario = document.getElementById("nombre_usuario");
+            cargar_foto_ferfil.src = data.foto_perfil_url;
+            cargar_nombre_usuario.textContent = data.nombre_usuario
+        },
+        // Completar en caso de no obtener ni foto de usuario ni nombre de usuario
+    });
+</script>
+{% endblock %}
+
 {% block topbar %}
 <form class="navbar-form navbar-left">
 <div class="form-group">
@@ -18,10 +35,10 @@
         <img src="http://lorempixel.com/1024/200" class="image-responsive class="mx-auto" style="width:100%;"/>
     </div>
     <div class="useravatar">
-        <img alt="" src={{ foto_perfil_usuario.url }}/>
+        <img id="foto_perfil_usuario" alt="" src=""/>
     </div>
     <div class="card-info">
-        <span class="card-title">{{ nombre_usuario }}</span>
+        <span id="nombre_usuario" class="card-title"></span>
     </div>
 </div>
 <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
