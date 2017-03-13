@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block javascript %}
+<script>
+document.addEventListener("DOMContentLoaded",
+    function () {
+        document.getElementById("id_username").setAttribute("class", "form-control");
+        document.getElementById("id_password").setAttribute("class", "form-control");
+    }, false);
+</script>
+{% endblock %}
+
 {% block content %}
 <br>
 <form method="post" action="">
@@ -16,11 +27,4 @@
     <input type="hidden" name="next" value="{{ next }}" />
 </form>
 <br>
-<script>
-document.addEventListener("DOMContentLoaded",
-    function () {
-        document.getElementById("id_username").setAttribute("class", "form-control");
-        document.getElementById("id_password").setAttribute("class", "form-control");
-    }, false);
-</script>
 {% endblock %}

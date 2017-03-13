@@ -6,6 +6,7 @@ from usuario.views import registrar_usuario
 from usuario.views import login_usuario
 from usuario.views import logout_usuario
 from usuario.views import perfil_usuario
+from usuario.views import modificar_perfil_usuario
 
 
 urlpatterns = [
@@ -13,5 +14,6 @@ urlpatterns = [
     url(r'^registrar/', registrar_usuario),
     url(r'^login/', login_usuario),
     url(r'^logout/', logout_usuario),
-    url(r'^perfil/', perfil_usuario, name='perfil')
+    url(r'^perfil/', modificar_perfil_usuario, name='perfil'),
+    url(r'^perfil_usuario/$', perfil_usuario, name='perfil_usuario'),
 ]
