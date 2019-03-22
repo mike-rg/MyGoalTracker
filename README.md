@@ -14,5 +14,4 @@ $ pip3 install Pillow
 
 ## Contributed
 - Miguel Maldonado miguel.alberto.maldonado@gmail.com
-- Nazareno nazarenomedrano95@hotmail.com
-- masterpc1 oviedonicolas350@gmail.com
+- Emanuel Enrique Oviedo eemanueloviedo@gmail.com
